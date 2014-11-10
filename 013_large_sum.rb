@@ -102,7 +102,7 @@ numbers = [37107287533902102798797998220837590246510135740250,
 sum = 0
 
 numbers.each do |number|
-	number = number.to_s[0, 12].to_i
+	number = number.to_s[0, 13].to_i
 	sum += number
 end
 

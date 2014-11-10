@@ -1,5 +1,3 @@
-require 'pry'
-
 def find_primes(num)
 	primes = [2]
 	counter = 3

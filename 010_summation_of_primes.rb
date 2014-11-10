@@ -1,5 +1,3 @@
-require 'pry'
-
 primes = [2]
 
 counter = 2

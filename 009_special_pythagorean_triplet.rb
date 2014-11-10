@@ -26,12 +26,12 @@ end
 		b = b.to_f
 		c = Math.sqrt((a**2) + (b**2))
 		triplet = Triplet.new(a, b, c)
-			if triplet.check_py && triplet.check_sum
-				puts triplet.a
-				puts triplet.b
-				puts triplet.c
-				puts triplet.a * triplet.b * triplet.c
-				break
-			end
+		if triplet.check_py && triplet.check_sum
+			puts triplet.a
+			puts triplet.b
+			puts triplet.c
+			puts triplet.a * triplet.b * triplet.c
+			break
+		end
 	end
 end
