@@ -2,6 +2,8 @@ require 'benchmark'
 
 class Grid
 
+	attr_accessor :paths
+
 	#Project Euler #15
 	#Ultimately, the question reduces to this: You must go down x number of times
 	#you must go right y number of times (x and y may equal each other).
@@ -14,22 +16,21 @@ class Grid
 		#so that this program will work on non-square grids
 		@right = right
 		@down = down
+		@paths = routes(@right, @down)
 	end
 
-	def routes
-		routes = fact(@right + @down) / (fact(@right) * fact(@down))
-	end
-
-	#there is no factorial method in Ruby, so I am writing my own within this class
-	def fact(number)
-		if number == 0
-			fact = 1
+	def routes(right, down)
+		paths = 0
+		if right == 0 || down == 0
+			paths += 1
 		else
-			fact = number * fact(number - 1)
+			paths += routes(right - 1, down) + routes(right, down - 1)
 		end
-		fact
+		paths
 	end
+
 end
 
-puts Benchmark.measure { new_grid = Grid.new(5, 5).routes }
-puts Grid.new(5, 5).routes
+puts Benchmark.measure { new_grid = Grid.new(5, 5).paths }
+puts Grid.new(5, 5).paths
+
