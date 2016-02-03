@@ -1,15 +1,16 @@
-require 'pry'
-
-counter = 1
-sum = 25
-adder = 4
-
-while counter <= 1002001
-	4.times do
-		counter += adder
-		sum += counter
+def sum_diags
+	total = 1
+	square = 3
+	while square < 1002
+		newitem = square * square
+		total += newitem
+		3.times do
+			newitem = newitem - square + 1
+			total += newitem			
+		end
+		square += 2
 	end
-	adder += 1
+	total
 end
 
-puts sum
+puts sum_diags
