@@ -11,3 +11,4 @@ while counter < 1000
 end
 
 puts sum
+puts "kate"
