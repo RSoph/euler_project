@@ -4,7 +4,6 @@
 
 # Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 
-
 def factorial(number):
 	factorial = 1
 	for num in range(1, number+1):
@@ -16,7 +15,6 @@ def is_curious(number):
 	for digit in str(number):
 		total += factorial(int(digit))
 	return number == total
-
 
 curious_numbers = []
 
@@ -31,7 +29,6 @@ for number in curious_numbers:
 	total += number
 
 print total
-
 
 # NOTE - if I'm being perfectly honest, I don't know how to prove that 40585 is
 # the highest curious number. I found it by trial and error.
