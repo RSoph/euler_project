@@ -1,17 +1,10 @@
 class SpecialNumbers
 
-	attr_accessor :is_lychrel, :value
-
-	def initialize(value)
-		@value = value
-		@is_lychrel = is_lychrel
-	end
-
 	def preform_lychrization(number)
 		return number + number.to_s.reverse.to_i
 	end
 
-	def is_palendrome(number)
+	def is_palendrome?(number)
 		string = number.to_s
 		if (
 			string.length == 1 or
@@ -21,15 +14,14 @@ class SpecialNumbers
 		elsif string[0] != string[-1]
 			return false
 		else
-			return is_palendrome(string[1..-2])
+			return is_palendrome?(string[1..-2])
 		end
 	end
 
-	def is_lychrel
-		number = @value
+	def is_lychrel?(number)
 		counter = 0
 		while counter < 51
-			if is_palendrome(number)
+			if is_palendrome?(number)
 				return false
 			else
 				number = preform_lychrization(number)
@@ -44,7 +36,7 @@ lychrel_count = 0
 number = 1
 
 while number <= 10000
-	lychrel_count += 1 if SpecialNumbers.new(number).is_lychrel
+	lychrel_count += 1 if SpecialNumbers.new.is_lychrel?(number)
 	number += 1
 end
 
