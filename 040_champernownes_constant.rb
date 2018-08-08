@@ -22,3 +22,6 @@ puts total
 # important digit, and then move on without keeping track of the rest of them.
 
 # Still, it runs in only a few seconds, so I'm not sure how much better an optimized version would be.
+
+# Note that the digits in question are [1, 1, 5, 3, 7, 2, 1]. I wonder if there's an algorithmic
+# way to produce those numbers without building the whole string.
