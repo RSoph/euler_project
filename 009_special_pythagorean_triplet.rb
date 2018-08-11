@@ -1,17 +1,14 @@
-require 'pry'
-
+# There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+# Find the product abc.
 class Triplet
 
-	attr_accessor :a, :b, :c
+	attr_accessor :a, :b, :c, :correct_sum
 
-	def initialize(a, b, c)
+	def initialize(a, b)
 		@a = a
 		@b = b
-		@c = c
-	end
-
-	def check_py
-		@a**2 + @b**2 == @c**2
+		@c = Math.sqrt((a**2) + (b**2))
+		@correct_sum = check_sum
 	end
 
 	def check_sum
@@ -24,9 +21,8 @@ end
 	(a..998).each do |b|
 		a = a.to_f
 		b = b.to_f
-		c = Math.sqrt((a**2) + (b**2))
-		triplet = Triplet.new(a, b, c)
-		if triplet.check_py && triplet.check_sum
+		triplet = Triplet.new(a, b)
+		if triplet.correct_sum
 			puts triplet.a
 			puts triplet.b
 			puts triplet.c

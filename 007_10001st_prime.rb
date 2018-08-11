@@ -1,4 +1,5 @@
-def find_primes(num)
+# What is the 10001st prime number?
+def find_nth_prime(num)
 	primes = [2]
 	counter = 3
 	counter2 = 2
@@ -19,4 +20,4 @@ def find_primes(num)
 	primes
 end
 
-puts find_primes(10001)
+puts find_nth_prime(10001)
