@@ -1,3 +1,9 @@
+# If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words,
+# how many letters would be used?
+# NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains
+# 23 letters and 115 (one hundred and fifteen) contains 20 letters. The use of "and" when writing
+# out numbers is in compliance with British usage.
+
 require 'pry'
 
 class Number
@@ -11,32 +17,27 @@ class Number
 	def initialize(num)
 		@num = num
 		@word = find_word(@num)
-		@length = find_length(@word)
+		@length = @word.length
 	end
 
 	def find_word(num)
-		if num <= 20
-			word = @@words_hash[num]
+		if num == 1000
+			first_word = @@words_hash[1000]
+		elsif num <= 20
+			first_word = @@words_hash[num]
 		elsif num < 100
-			big_word = @@words_hash[num.to_s[0].to_i*10]
-			small_word = @@words_hash[num.to_s[-1].to_i]
-			small_word ||= ""
-			word = big_word + small_word
+			first_word = @@words_hash[num.to_s[0].to_i*10]
+			second_word = @@words_hash[num.to_s[-1].to_i]
 		elsif num < 1000
-			small_word = find_word(num.to_s[1..2].to_i)
-			big_word = @@words_hash[num.to_s[0].to_i] + "hundred"
-			if small_word
-				big_word = big_word + "and"
+			second_word = find_word(num.to_s[1..2].to_i)
+			first_word = @@words_hash[num.to_s[0].to_i] + "hundred"
+			if second_word
+				first_word = first_word + "and"
 			end
-			small_word ||= ""
-			word = big_word + small_word
-		elsif num == 1000
-			word = @@words_hash[1000]
 		end
-	end
-
-	def find_length(word)
-		word.length
+		first_word ||= ""
+		second_word ||= ""
+		word = first_word + second_word
 	end
 end
 

@@ -16,6 +16,10 @@ class Collatz
 
 	attr_accessor :number
 
+	# This keeps track of every number we've covered so far and its length.
+	# We'll check each number against it and break the sequence if we duplicate numbers
+	# Example: If we arrive at 5, we know from the sequence in the instructions that
+	# there are 5 more steps, so we just add five to the counter (on line 34), and move on.
 	@@lengths = {}
 
 	def initialize(number)
@@ -60,8 +64,6 @@ end
 
 puts greatest_length
 
-
-
-
-
-
+# Honestly I wrote this so long ago I couldn't remember the reason for using symbols instead of strings.
+# I just looked it up, and it's much more preformant in ruby to use symbols as dictionary keys.
+# Good for me knowing that 4 years ago!

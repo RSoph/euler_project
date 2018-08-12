@@ -1,8 +1,11 @@
+# Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down,
+# there are exactly 6 routes to the bottom right corner.
+# How many such routes are there through a 20×20 grid?
+
 require 'benchmark'
 
 class Grid
 
-	#Project Euler #15
 	#Ultimately, the question reduces to this: You must go down x number of times
 	#you must go right y number of times (x and y may equal each other).
 	#how many permutations of the path exist when selecting steps?
@@ -14,22 +17,22 @@ class Grid
 		#so that this program will work on non-square grids
 		@right = right
 		@down = down
+		@paths = routes
 	end
 
 	def routes
-		routes = fact(@right + @down) / (fact(@right) * fact(@down))
+		routes = factorial(@right + @down) / (factorial(@right) * factorial(@down))
 	end
 
-	#there is no factorial method in Ruby, so I am writing my own within this class
-	def fact(number)
+	def factorial(number)
 		if number == 0
-			fact = 1
+			factorial = 1
 		else
-			fact = number * fact(number - 1)
+			factorial = number * factorial(number - 1)
 		end
-		fact
+		factorial
 	end
 end
 
-puts Benchmark.measure { new_grid = Grid.new(5, 5).routes }
-puts Grid.new(5, 5).routes
+puts Benchmark.measure { new_grid = Grid.new(5, 5).paths }
+puts Grid.new(5, 5).paths
