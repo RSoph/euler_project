@@ -62,3 +62,8 @@ abundant_numbers = find_abundants(28123)
 summable_numbers = summable_numbers(abundant_numbers, 28123)
 total = inverse_total(summable_numbers, 28123)
 print total
+
+# This takes less than a minute to run, so I consider it an acceptable solution.
+# It's still annoyingly slow when you're running it over and over, which is why
+# I have abundant_numbers and summable_numbers saved as variables. They're for
+# testing purposes only.

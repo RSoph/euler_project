@@ -1,4 +1,8 @@
-require 'pry'
+# The number 3797 has an interesting property. Being prime itself, it is possible to continuously remove digits from left to right, and remain prime at each stage: 3797, 797, 97, and 7. Similarly we can work from right to left: 3797, 379, 37, and 3.
+
+# Find the sum of the only eleven primes that are both truncatable from left to right and right to left.
+
+# NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
 
 def prime(number, primes)
 	result = true
@@ -38,21 +42,18 @@ end
 
 counter = 2
 primes = [2]
-truncatables = []
+truncatables_count = 0
+total = 0
 
-while truncatables.size < 11
-	if prime counter, primes
+while truncatables_count < 11
+	if prime(counter, primes)
 		primes << counter
-		if truncatable? counter.to_s, primes
-			truncatables << counter
+		if truncatable?(counter.to_s, primes)
+			truncatables_count += 1
+			total += counter
 		end
 	end
 	counter += 1
-end
-
-total = 0
-truncatables.each do |num|
-	total += num
 end
 
 puts total
