@@ -1,3 +1,5 @@
+# Find the sum of the digits in the number 100!
+
 def factorial(num)
 	if num >= 1
 		num *= factorial(num - 1)
@@ -14,5 +16,4 @@ def digit_sum(number)
 	sum
 end
 
-puts factorial(100)
 puts digit_sum(factorial(100))
