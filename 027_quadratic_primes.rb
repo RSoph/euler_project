@@ -32,15 +32,20 @@ max_primes = {value: 40, a: 1, b: 1, product: 1}
 
 a = -1000
 while a < 1000
-	b = -1000
+	b = 1
 	while b < 1000
 		n = -1
 		primes = 0
 		while n <= (b.abs)
 			n += 1
 			result = (n*n) + a*n + b
-			if is_prime(result)
+			if (
+				result > 1 and
+				is_prime(result)
+			)
 				primes += 1
+			else
+				break
 			end
 		end
 		if primes > max_primes[:value]
@@ -55,11 +60,9 @@ end
 
 puts max_primes
 
-# Note, I maybe cheated just a schmidge. Since it prints out each new value of max_primes when it finds one,
-# I just entered them in as it went until I found the answer. 
-# {:value=>585, :a=>-61, :b=>971, :product=>-59231}
-# The entire program takes almost 10 minutes to run, which means that there's a lot of optimization to be
-# done here.
+# b must be positive because when b is negative and n is less than abs(b), the result will always be
+# negative. By eliminating negative b values, we can cut operation time just about in half.
+
 # One idea I had was working out the list of primes up to 2001000 (a and b both equal 1000), and then
 # checking each result against that list, rather than figuring out if each result was a prime over
-# and over. Surprisingly, that was even slower.
+# and over.
