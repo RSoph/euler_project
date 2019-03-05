@@ -1,4 +1,6 @@
-# For a number written in Roman numerals to be considered valid there are basic rules which must be followed. Even though the rules allow some numbers to be expressed in more than one way there is always a "best" way of writing a particular number.
+# For a number written in Roman numerals to be considered valid there are basic rules which must be followed.
+# Even though the rules allow some numbers to be expressed in more than one way there is always a "best" way
+# of writing a particular number.
 
 # For example, it would appear that there are at least six ways of writing the number sixteen:
 
@@ -9,9 +11,11 @@
 # VVVI
 # XVI
 
-# However, according to the rules only XIIIIII and XVI are valid, and the last example is considered to be the most efficient, as it uses the least number of numerals.
+# However, according to the rules only XIIIIII and XVI are valid, and the last example is considered to be
+# the most efficient, as it uses the least number of numerals.
 
-# The numbers list provided, contains one thousand numbers written in valid, but not necessarily minimal, Roman numerals; see About... Roman Numerals for the definitive rules for this problem.
+# The numbers list provided, contains one thousand numbers written in valid, but not necessarily minimal,
+# Roman numerals; see About... Roman Numerals for the definitive rules for this problem.
 
 # Find the number of characters saved by writing each of these in their minimal form.
 
@@ -30,6 +34,7 @@ def minimize(string)
 	return length_savings
 end
 
+
 savings = 0
 numbers.each do |number|
 	savings += minimize(number)
@@ -38,5 +43,5 @@ end
 puts savings
 
 # The hardest part of this, by far, was coming up with all of the entries for the 'replacements' hash.
-# I just added all I could think of, printed the result, looked for 'wrong' numberals and added more
+# I just added all I could think of, printed the result, looked for 'wrong' numerals and added more
 # as they became obvious. I wonder if there's a better way to generate that hash.
