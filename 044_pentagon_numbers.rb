@@ -7,7 +7,7 @@
 # Find the pair of pentagonal numbers, Pj and Pk, for which their sum and difference are pentagonal and 
 # D = |Pk − Pj| is minimised; what is the value of D?
 
-result = {difference: 100000}
+result = 10000000
 pentagonal_numbers = []
 
 (1..3000).each do |number|
@@ -22,14 +22,13 @@ pentagonal_numbers.each do |pent_a|
 			difference != 0 and
 			pentagonal_numbers.include?(difference) and
 			pentagonal_numbers.include?(sum) and
-			difference < result[:difference]
+			difference < result
 		)
-			result = {
-				my_name: 'kate',
-				difference: difference
-			}
+			result = difference
 		end
 	end
 end
 
-puts result
+# This could be run in half the time, because it's iterating over the whole
+# array of pentagonal numbers twice. Also, I just took it on faith that the answer would
+# involve only numbers below the 3000th pentagonal number.
