@@ -35,25 +35,27 @@ def digit_factorial(number):
 def make_chain(starting_number, chains):
 	chain = []
 	current_number = starting_number
-	while not current_number in chain:
-		if current_number in chains:
-			return len(chain) + chains[current_number]
-		chain.append(current_number)
-		current_number = digit_factorial(current_number)
-	return len(chain)
+	while True:
+		if not current_number in chain:
+			if current_number in chains:
+				return len(chain) + chains[current_number]
+			chain.append(current_number)
+			current_number = digit_factorial(current_number)
+		else:
+			return len(chain)
 
 chains = {}
-sixty_chains = 0
+chains_of_sixty = 0
 counter = 1
 
 while counter < 1000000:
 	chain_length = make_chain(counter, chains)
 	if chain_length == 60:
-		sixty_chains += 1
+		chains_of_sixty += 1
 	chains[counter] = chain_length
 	counter += 1
 	print counter
 
-print sixty_chains
+print chains_of_sixty
 
 
