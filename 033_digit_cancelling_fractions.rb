@@ -11,67 +11,81 @@
 # the value of the denominator.
 
 
-def is_curious(num_1, num_2, dem_1, dem_2):
-	is_curious = False
+def is_curious?(num_1, num_2, dem_1, dem_2)
+	is_curious = false
 	numerator = (num_1 * 10.0) + num_2
 	denominator = (dem_1 * 10.0) + dem_2
 	reduced_1 = numerator / denominator
 	reduced_2 = 0.0
-	if num_1 == dem_1 and num_2 == dem_2:
+	if num_1 == dem_1 and num_2 == dem_2
 		return is_curious
-	if denominator == 0.0 or numerator == 0.0:
+	end
+	if denominator == 0.0 or numerator == 0.0
 		return is_curious
+	end
 
-	if num_1 == dem_1:
+	if num_1 == dem_1
 		reduced_2 = num_2 / dem_2
-	elif num_1 == dem_2:
+	elsif num_1 == dem_2
 		reduced_2 = num_2 / dem_1
-	elif num_2 != 0.0:
-		if num_2 == dem_1:
+	elsif num_2 != 0.0
+		if num_2 == dem_1
 			reduced_2 = num_1 / dem_2
-		elif num_2 == dem_2:
+		elsif num_2 == dem_2
 			reduced_2 = num_1 / dem_1
+		end
+	end
 
-	if reduced_1 == reduced_2 and reduced_1 < 1.0:
-		is_curious = True
+	if reduced_1 == reduced_2 and reduced_1 < 1.0
+		is_curious = true
+	end
 	return is_curious
+end
 
-
-def find_denominator(num, dem):
+def find_denominator(num, dem)
 	counter = 2.0
-	while counter < dem:
-		while num % counter == 0.0 and dem % counter == 0.0:
+	while counter < dem
+		while num % counter == 0.0 and dem % counter == 0.0
 			num = num / counter
 			dem = dem / counter
+		end
 		counter += 1.0
+	end
 	return dem
+end
 
 curious = []
 num_1 = 1.0
 num_2 = 0.0
 dem_1 = 1.0
 dem_2 = 1.0
-while num_1 < 10.0:
-	while num_2 < 10.0:
-		while dem_1 < 10.0:
-			while dem_2 < 10.0:
-				if is_curious(num_1, num_2, dem_1, dem_2):
+while num_1 < 10.0
+	while num_2 < 10.0
+		while dem_1 < 10.0
+			while dem_2 < 10.0
+				if is_curious?(num_1, num_2, dem_1, dem_2)
 					numerator = (num_1 * 10.0) + num_2
 					denominator = (dem_1 * 10.0) + dem_2
-					curious.append((numerator, denominator))
+					curious.append([numerator, denominator])
+				end
 				dem_2 += 1.0
+			end
 			dem_2 = 1.0
 			dem_1 += 1.0
+		end
 		dem_1 = 1.0
 		num_2 += 1.0
+	end
 	num_2 = 0.0
 	num_1 += 1.0
+end
 
 num_product = 1.0
 dem_product = 1.0
-for (numerator, denominator) in curious:
+curious.each do |numerator, denominator|
 	num_product *= numerator
 	dem_product *= denominator
+end
 
-print(find_denominator(num_product, dem_product))
+print find_denominator(num_product, dem_product)
 # 100.0

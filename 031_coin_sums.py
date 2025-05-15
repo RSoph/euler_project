@@ -4,12 +4,12 @@
 # 1p, 2p, 5p, 10p, 20p, 50p, L1 (100p) and L2 (200p).
 # It is possible to make L2 in the following way:
 
+	# 1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p
 
 # How many different ways can L2 be made using any number of coins?
 
-combinations = 0
 
-def find_combinations(number, combinations):
+def find_combinations(number):
 	values = [1, 2, 5, 10, 20, 50, 100, 200]
 	max_coin = values[-1]
 	if number < 1:
@@ -23,8 +23,9 @@ def find_combinations(number, combinations):
 		):
 			max_coin = value
 	while max_coin >= number:
-		combinations += 1 + (find_combinations(number-max_coin, combinations))
 		number = number - max_coin
+		combinations = 1 + (find_combinations(number))
 
-find_combinations(200, combinations)
-print combinations
+
+print(find_combinations(200))
+# print(combinations)

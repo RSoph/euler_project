@@ -4,11 +4,15 @@
 sum = 0
 (1..999).each do |counter|
 	if counter % 3 == 0
+		puts counter
 		sum += counter
 	elsif counter % 5 == 0
+		puts counter
 		sum += counter
 	end
 	counter += 1
 end
 
 puts sum
+
+# 4613732

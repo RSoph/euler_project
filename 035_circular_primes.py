@@ -40,7 +40,7 @@ def count_circulars(ceiling):
 		if is_circular(prime): circulars += 1
 	return circulars
 
-print count_circulars(1000000)
+print(count_circulars(1000000))
 
 # NOTE: the above gives the answer 129, which is not correct. I don't know what
 # the problem is and will fix another time.

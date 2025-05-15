@@ -4,34 +4,39 @@
 
 # Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 
-def factorial(number):
+def factorial(number)
 	factorial = 1
-	for num in range(1, number+1):
+	(1..number).each do |num|
 		factorial *= num
-	# print(factorial)
-	return factorial
+	end
+	factorial
+end
 
-def is_curious(number):
+def is_curious?(number)
 	total = 0
-	for digit in str(number):
-		total += factorial(int(digit))
-	# print(number)
-	return number == total
+	number.to_s.chars.each do |digit|
+		total += factorial(digit.to_i)
+	end
+	number == total
+end
 
 curious_numbers = []
 
 counter = 3
-while counter < 100000:
-	if is_curious(counter):
+while counter < 100000
+	if is_curious?(counter)
 		curious_numbers.append(counter)
+	end
 	counter += 1
-	# print(counter)
-print(curious_numbers)
-total = 0
-for number in curious_numbers:
-	total += number
+end
 
-print(total)
+total = 0
+
+curious_numbers.each do |number|
+	total += number
+end
+
+puts(total)
 # 40730
 
 # NOTE - if I'm being perfectly honest, I don't know how to prove that 40585 is

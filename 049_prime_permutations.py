@@ -60,20 +60,19 @@ for prime in four_digit_primes:
 			if (
 				difference != 0 and
 				second_permutation in permutations and 
-				second_permutation in four_digit_primes
+				second_permutation in four_digit_primes and
+				prime < first_permutation and
+				first_permutation < second_permutation
 			):
-				print "".join([
-					str(prime), str(first_permutation), str(second_permutation)
-				])
+				print("".join([
+									str(prime), str(first_permutation), str(second_permutation)
+								]))
+
+# answer:
+# 148748178147
+# 296962999629
+# 296962999629
 
 # I know, I also can't belive I typed out all 23 permutations. Believe me, I don't
 # like it either. But if you want a thing done in 20 minutes as a quick warm up, you
 # sometimes do it dirty.
-
-# It's a good thing that the problem statement specified that it must be an 
-# INCREASING arithmetic sequence, or I might insist that 814748171487 or 962962992969
-# were valid answers as well.
-
-
-
-
